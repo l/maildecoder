@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# maildecoder.pl - Yet another maildecoder based on MIME for MHonArc an an alternative to nkf -
+# maildecoder.pl - Yet another maildecoder based on MIME for MHonArc as an alternative to nkf -
 #
 # Copyright (C) 2012 "AYANOKOUZI, Ryuunosuke" <i38w7i3@yahoo.co.jp>
 #
