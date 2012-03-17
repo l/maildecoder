@@ -50,7 +50,7 @@ use MIME::Parser;
                 my $decoded_str = '';
                 foreach ( decode_mimewords($_) ) {
                     my $str = $_->[0];
-                    my $enc = defined $_->[1] ? $_->[1] : 'US-ASCII';
+                    my $enc = defined $_->[1] ? $_->[1] : '';
                     $decoded_str .= main::decode_str( $str, $enc );
                 }
                 push @decoded, $decoded_str;
