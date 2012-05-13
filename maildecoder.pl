@@ -88,7 +88,7 @@ use MIME::Parser;
     *decode2 = sub {
         my $self = shift;
         $self->head->decode2;
-        if ( $self->is_multipart ) {
+        if ( !defined $self->bodyhandle ) {
             my $count = $self->parts;
             for ( my $i = 0 ; $i < $count ; $i++ ) {
                 $self->parts($i)->decode2;
@@ -96,7 +96,12 @@ use MIME::Parser;
         }
         else {
             my $charset = $self->head->mime_attr('content-type.charset');
-            $self->bodyhandle->decode2($charset);
+            if ( defined $charset ) {
+                $self->bodyhandle->decode2($charset);
+            }
+            else {
+                $self->bodyhandle->decode2;
+            }
         }
     };
     *MIME::Entity::decode2 = \&decode2;
